@@ -41,6 +41,11 @@ def self.delete_all()
   SqlRunner.run(sql)
 end
 
+def update()
+    sql = "UPDATE albums SET (title, genre) = ($1, $2) WHERE id = $3"
+    values = [@title, @genre, @id]
+    SqlRunner.run(sql,values)
+end
 
 
 
